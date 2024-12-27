@@ -8,8 +8,9 @@ const pages = [
 
 export default function HeaderCrumbs() {
   return (
-    <nav aria-label="Breadcrumb" className="relative">
-      <ol role="list" className="absolute flex items-center space-x-2 mx-4 my-3">
+    <div>
+    <nav aria-label="Breadcrumb" className="sticky top-3">
+      <ol role="list" className="absolute flex items-center space-x-2 px-4 py-3 bg-[#FDFDFC] rounded">
         <li>
           <div>
             <a href="#" className="text-gray-400 hover:text-gray-500">
@@ -34,5 +35,6 @@ export default function HeaderCrumbs() {
         ))}
       </ol>
     </nav>
+    </div>
   )
 }

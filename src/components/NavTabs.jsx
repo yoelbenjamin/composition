@@ -24,7 +24,7 @@ export default function NavTabs() {
               href={tab.href}
               aria-current={tab.current ? 'page' : undefined}
               className={classNames(
-                tab.current ? 'bg-gray-100 text-gray-700 font-semibold' : 'text-gray-500 hover:text-gray-700 font-medium',
+                tab.current ? 'bg-[#f7f2eb] text-gray-700 font-semibold' : 'text-gray-500 hover:text-gray-700 font-medium',
                 'rounded-md px-2 py-1 text-xs',
               )}
             >

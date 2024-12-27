@@ -1,10 +1,10 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
 
-export default function Content() {
+export default function ContentPage() {
+
   return (
-    <section className=" flex h-screen w-full justify-center">
-      <div className="border-b border-gray-200 m-20 pb-5 w-2/3 max-h-min">
+    <section className=" flex justify-center">
         <div className="sm:flex sm:items-baseline sm:justify-between">
           <div className="sm:w-0 sm:flex-1">
             <h1 id="message-heading" className="text-base font-semibold text-gray-900">
@@ -55,7 +55,6 @@ export default function Content() {
             </Menu>
           </div>
         </div>
-      </div>
     </section>
   )
 }
