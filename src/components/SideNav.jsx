@@ -39,8 +39,6 @@ function classNames(...classes) {
 
 export default function SideNav(props) {
 
-  console.log('clicked');
-
   return (
 
     <div className=" h-screen w-[240px] shrink-0 sticky top-0 p-3 ">
