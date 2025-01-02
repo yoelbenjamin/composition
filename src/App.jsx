@@ -1,11 +1,13 @@
 import { useState } from 'react'
+import { Container } from 'postcss'
 
 import './App.css'
 import SideNav from './components/SideNav'
 import HeaderCrumbs from './components/Breadcrumbs'
 import ContentBody from './components/ContentBody'
 import Toolbar from './components/Toolbar'
-import { Container } from 'postcss'
+import MainNav from './components/MainNavigation'
+
 
 function App() {
 
@@ -14,20 +16,24 @@ function App() {
 
   return (
     <>
-      <div className="flex justify-start bg-[#FDFDFC]">
-        { navCollapsed && <SideNav
+      <div className="flex justify-start bg-[#F6F4F0]">
+
+        <MainNav />
+
+        {/*navCollapsed && <SideNav
           navCollapsed={navCollapsed}
           setNavCollapsed={setNavCollapsed}
-        /> }
-        { !navCollapsed && <HeaderCrumbs
+        />8*/}
+        {!navCollapsed && <HeaderCrumbs
           navCollapsed={navCollapsed}
           setNavCollapsed={setNavCollapsed}
-          /> }
-        <ContentBody 
+        />}
+        <ContentBody
           viewingDocument={viewingDocument}
           setViewingDocument={setViewingDocument}
         />
-        { viewingDocument && <Toolbar /> }
+        {viewingDocument && <Toolbar />}
+
       </div>
 
     </>

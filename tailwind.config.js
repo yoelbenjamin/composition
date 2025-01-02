@@ -15,7 +15,8 @@ export default {
           'text-hover': '#35332F',
           'text-selected': '#35332F',
 
-          'button-background': '#EAE8E3'
+          'button-background': '#EAE8E3',
+          'divider-app': '#E7E6E3'
 
 
         }

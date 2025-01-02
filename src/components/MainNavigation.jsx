@@ -1,81 +1,125 @@
+import { PanelLeft, Circle, Search } from 'lucide-react';
+
 import ButtonText, { ButtonIconLeft, ButtonIconRight, ButtonIconBoth } from './Buttons'
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 
 export default function MainNav() {
 
+  let Folders = [{
+    id: 1,
+    href: '',
+    current: false,
+    folderName: 'Video Scripts',
+    iconType: 'Folder',
+    children: [
+      { id: 1.2, href: '', current: false, folderName: 'Notes', iconType: 'FileText' },
+      { id: 1.3, href: '', current: false, folderName: 'Notes', iconType: 'FileText' },{ id: 1.1, href: '', current: false, folderName: 'Dissertation', iconType: 'Folder' }
+    ]
+  }, {
+    id: 2,
+    href: '',
+    current: false,
+    folderName: 'Social Content',
+    iconType: 'Folder',
+    children: null
+  }];
 
   return (
+    <div className='flex'>
+      <div className='flex'>
+        <nav className='flex flex-shrink-0 sticky top-0 py-6 px-4 w-[190px] h-screen overflow-auto '>
 
-    <>
-      <ButtonText buttonText={"Research"} />
-      <ButtonIconLeft buttonText={"Research"} iconType={"Folder"} />
+          <ul role="list" className="flex flex-col gap-10 w-full h-full">
 
-      <ButtonIconRight buttonText={"Text Goes Here"} iconType={"Folder"} />
+            <li className='flex flex-col gap-5'>
+              <div className='flex justify-between pl-3'>
 
-      <ButtonIconBoth buttonText={"Text Goes Here"} iconTypeLeft={"Folder"} iconTypeRight={"Folder"} />
+                <div className='flex gap-1'>
+                  <Circle size={12} color='#CDCCC9' />
+                  <Circle size={12} color='#CDCCC9' />
+                  <Circle size={12} color='#CDCCC9' />
+                </div>
+
+                <PanelLeft size={16} color='#676562' />
+
+              </div>
+
+              <div className='flex flex-col gap-[1px]'>
+
+                <ButtonIconLeft buttonText={"Search"} iconType={"Search"} />
+
+                <ButtonIconLeft buttonText={"Drafts"} iconType={"NotebookPen"} />
+              </div>
+             </li>
 
 
-      <nav className="flex flex-1 flex-col px-2">
-        <ul role="list" className="flex flex-1 flex-col gap-y-1">
-          <li className='block pt-3 pb-1 pl-1 text-xs font-semibold text-gray-700'
-          >Outline</li>
+
           <li>
-            <ul role="list" className="mx-2 space-y-1 overflow-y-auto">
+            <li className='text-xs text-text-default pl-3 pb-1'
+            >Folders</li>
 
-              {writingOutline.map((item) => (
-                <li key={item.name}>
+            <ul role="list" className="flex flex-col justify-end gap-px overflow-y-auto">
+
+
+              {Folders.map((item) => (
+
+                <li key={item.id}>
                   {!item.children ? (
-                    <a
-                      href={item.href}
-                      className={classNames(
-                        item.current ? 'bg-[#f7f2eb] font-medium' : 'hover:bg-[#f7f2eb]',
-                        'block rounded-md py-2 pl-8 pr-2 text-xs font-regular text-gray-700',
-                      )}
-                    >
-                      {item.name}
-                    </a>
+                    <ButtonIconLeft buttonText={item.folderName} iconType={item.iconType} />
                   ) : (
-                    <Disclosure as="div" defaultOpen={true}>
-                      <DisclosureButton
-                        className={classNames(
-                          item.current ? 'bg-[#f7f2eb]' : 'hover:bg-[#f7f2eb]',
-                          'group flex w-full items-center gap-x-2 rounded-sm p-2 text-left text-xs font-regular text-gray-700',
+                    <Disclosure as="div" defaultOpen={false}>
+
+                      <DisclosureButton className="w-full">
+                        {({ open }) => (
+                          <ButtonIconBoth as="a" buttonText={item.folderName} iconTypeLeft={item.iconType} iconTypeRight={open ? 'ChevronUp' : 'ChevronDown'} />
                         )}
-                      >
-                        <ChevronRightIcon
-                          aria-hidden="true"
-                          className="size-4 shrink-0 text-gray-400 group-data-[open]:rotate-90 group-data-[open]:text-gray-500"
-                        />
-                        {item.name}
                       </DisclosureButton>
+
                       <DisclosurePanel as="ul">
                         {item.children.map((subItem) => (
-                          <li key={subItem.name}>
-                            <DisclosureButton
-                              as="a"
-                              href={subItem.href}
-                              className={classNames(
-                                subItem.current ? 'bg-gray-50' : 'hover:bg-[#f7f2eb]',
-                                'block rounded-md py-2 pl-8 pr-2 text-xs text-gray-700',
-                              )}
-                            >
-                              {subItem.name}
-                            </DisclosureButton>
+                          <li key={subItem.id}>
+                            <Disclosure.Button className="pl-1 w-full">
+                              <ButtonIconLeft buttonText={subItem.folderName} iconType={subItem.iconType} />
+                            </Disclosure.Button>
                           </li>
                         ))}
                       </DisclosurePanel>
                     </Disclosure>
+
                   )}
                 </li>
+
               ))}
+
             </ul>
+
           </li>
 
-        </ul>
-      </nav>
-    </>
+          <li className='h-full'></li>
+
+          <li>
+              <ul className='flex flex-col gap-px'>
+              <li>
+                <ButtonIconLeft buttonText={"Settings"} iconType={"Cog"} />
+              </li>
+              <li>
+              <ButtonIconLeft buttonText={"Support"} iconType={"Info"} />
+              </li>
+              <li>
+              <ButtonIconLeft buttonText={"Shortcuts"} iconType={"Command"} />
+              </li>
+              <li>
+              <ButtonIconLeft buttonText={"Upgrade"} iconType={"CloudUpload"} />
+              </li>           
+              
+              </ul>
+          </li>
+          </ul>
+
+        </nav>
+        <div className='h-full w-[1px] bg-divider-app'></div>
+      </div>
+    </div>
   )
 }
-
-

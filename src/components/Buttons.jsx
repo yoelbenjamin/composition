@@ -4,7 +4,7 @@ import * as Icons from 'lucide-react';
 export default function ButtonText({ buttonText }) {
   return (
     <button className="
-    flex items-center gap-1 px-2 py-1 
+    flex items-center gap-1 px-2 py-1 w-full
     
     text-text-default hover:text-text-hover hover:bg-button-background
     
@@ -21,14 +21,14 @@ export function ButtonIconLeft({ iconType, buttonText }) {
 
   return (
     <button className="
-    flex items-center gap-1 px-2 py-1 
+    flex items-center gap-1 px-2 py-1 w-full
     
     text-text-default hover:text-text-hover hover:bg-button-background
     
     text-sm font-normal rounded-full
     ">
       <span className=" icon-wrapper
-       flex justify-center items-center h-4 w-4">
+       flex justify-center items-center h-5 w-5">
         {LeftIcon ? React.createElement(LeftIcon, { size: 12 }) : null}
       </span>
       {buttonText}
@@ -42,7 +42,7 @@ export function ButtonIconRight({ iconType, buttonText }) {
 
   return (
     <button className="
-    flex items-center gap-1 px-2 py-1 
+    flex items-center justify-between gap-1 px-2 py-1 w-full
     
     text-text-default hover:text-text-hover hover:bg-button-background
     
@@ -50,7 +50,7 @@ export function ButtonIconRight({ iconType, buttonText }) {
     ">
       {buttonText}
       <span className=" icon-wrapper
-       flex justify-center items-center h-4 w-4">
+       flex justify-center items-center h-5 w-5">
         {RightIcon ? React.createElement(RightIcon, { size: 12 }) : null}
       </span>
     </button>
@@ -65,20 +65,22 @@ export function ButtonIconBoth({ iconTypeLeft, iconTypeRight, buttonText }) {
 
   return (
     <button className="
-    flex items-center gap-1 px-2 py-1 
+    flex items-center justify-between px-2 py-1 w-full
     
     text-text-default hover:text-text-hover hover:bg-button-background
     
     text-sm font-normal rounded-full
     ">
-      <span className=" icon-wrapper
-       flex justify-center items-center h-4 w-4">
+      <span className="flex gap-1">
+        <span className=" icon-wrapper
+       flex justify-center items-center h-5 w-5">
         {LeftIcon ? React.createElement(LeftIcon, { size: 12 }) : null}
       </span>
       {buttonText}
+      </span>
       <span className=" icon-wrapper
-       flex justify-center items-center h-4 w-4">
-        {RightIcon ? React.createElement(RightIcon, { size: 12 }) : null}
+       flex justify-center items-center h-5 w-5">
+        {RightIcon ? React.createElement(RightIcon, { size: 16 }) : null}
       </span>
 
     </button>
