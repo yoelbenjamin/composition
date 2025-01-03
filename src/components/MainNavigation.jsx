@@ -56,7 +56,7 @@ export default function MainNav(props) {
             <li className='flex flex-col gap-5'>
               <div className='flex justify-between pl-3'>
 
-                <div className='flex gap-1'>
+                <div className='flex items-center gap-1'>
                   <Circle size={12} color='#CDCCC9' />
                   <Circle size={12} color='#CDCCC9' />
                   <Circle size={12} color='#CDCCC9' />

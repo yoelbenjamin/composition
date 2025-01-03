@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Container } from 'postcss'
 
 import './App.css'
-import SideNav from './components/SideNav'
+
 import HeaderCrumbs from './components/Breadcrumbs'
 import ContentBody from './components/ContentBody'
 import Toolbar from './components/Toolbar'
@@ -18,19 +18,15 @@ function App() {
     <>
       <div className="flex justify-start bg-[#F6F4F0]">
         
-        { navOpen && <MainNav
+        { navOpen ? 
+          (<MainNav
           navOpen={navOpen}
           setNavOpen={setNavOpen}
-        /> }
+          />) : (<HeaderCrumbs
+          navOpen={navOpen}
+          setNavOpen={setNavOpen}
+        /> )}
 
-        {/*navOpen && <SideNav
-          navOpen={navOpen}
-          setNavOpen={setNavOpen}
-        />8*/}
-        {!navOpen && <HeaderCrumbs
-          navOpen={navOpen}
-          setNavOpen={setNavOpen}
-        />}
         <ContentBody
           viewingDocument={viewingDocument}
           setViewingDocument={setViewingDocument}

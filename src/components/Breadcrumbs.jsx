@@ -1,4 +1,4 @@
-import { ChevronRightIcon, HomeIcon } from '@heroicons/react/20/solid'
+import { PanelLeft, Circle, Search } from 'lucide-react';
 
 const pages = [
   { name: 'Projects', href: '#', current: false },
@@ -6,35 +6,27 @@ const pages = [
   { name: 'Document', href: '#', current: true },
 ]
 
-export default function HeaderCrumbs() {
+export default function HeaderCrumbs(props) {
   return (
+
     <div>
-    <nav aria-label="Breadcrumb" className="sticky top-3">
-      <ol role="list" className="absolute flex items-center space-x-2 px-4 py-3 bg-[#FDFDFC] rounded">
-        <li>
-          <div>
-            <a href="#" className="text-gray-400 hover:text-gray-500">
-              <HomeIcon aria-hidden="true" className="size-4 shrink-0" />
-              <span className="sr-only">Home</span>
-            </a>
-          </div>
-        </li>
-        {pages.map((page) => (
-          <li key={page.name} className='flex'>
-            <div className="flex items-center">
-              <ChevronRightIcon aria-hidden="true" className="size-4 shrink-0 text-gray-400" />
-              <a
-                href={page.href}
-                aria-current={page.current ? 'page' : undefined}
-                className="ml-1 text-xs font-medium min-w-max shrink-0 text-gray-500 hover:text-gray-700"
-              >
-                {page.name}
-              </a>
-            </div>
+      <nav aria-label="Breadcrumb" className="sticky top-0">
+        <ol role="list" className="absolute flex justify-between w-[90px] pl-3 mt-6 ml-4 h-auto">
+
+          <li className='flex items-center gap-1 h-4'>
+            <Circle size={12} color='#CDCCC9' />
+            <Circle size={12} color='#CDCCC9' />
+            <Circle size={12} color='#CDCCC9' />
           </li>
-        ))}
-      </ol>
-    </nav>
-    </div>
+
+          <li className="flex align-top h-4">
+            <button onClick={() => {
+              props.setNavOpen(true)
+            }}><PanelLeft size={16} color='#676562' /></button>
+          </li>
+
+        </ol>
+      </nav>
+    </div >
   )
 }
