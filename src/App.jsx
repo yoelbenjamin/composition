@@ -12,27 +12,29 @@ import MainNav from './components/MainNavigation'
 function App() {
 
   const [viewingDocument, setViewingDocument] = useState(true);
-  const [navCollapsed, setNavCollapsed] = useState(true);
+  const [navOpen, setNavOpen] = useState(true);
 
   return (
     <>
       <div className="flex justify-start bg-[#F6F4F0]">
+        
+        { navOpen && <MainNav
+          navOpen={navOpen}
+          setNavOpen={setNavOpen}
+        /> }
 
-        <MainNav />
-
-        {/*navCollapsed && <SideNav
-          navCollapsed={navCollapsed}
-          setNavCollapsed={setNavCollapsed}
+        {/*navOpen && <SideNav
+          navOpen={navOpen}
+          setNavOpen={setNavOpen}
         />8*/}
-        {!navCollapsed && <HeaderCrumbs
-          navCollapsed={navCollapsed}
-          setNavCollapsed={setNavCollapsed}
+        {!navOpen && <HeaderCrumbs
+          navOpen={navOpen}
+          setNavOpen={setNavOpen}
         />}
         <ContentBody
           viewingDocument={viewingDocument}
           setViewingDocument={setViewingDocument}
         />
-        {viewingDocument && <Toolbar />}
 
       </div>
 

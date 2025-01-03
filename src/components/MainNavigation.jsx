@@ -4,10 +4,17 @@ import ButtonText, { ButtonIconLeft, ButtonIconRight, ButtonIconBoth } from './B
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 
-export default function MainNav() {
+export default function MainNav(props) {
 
   let Folders = [{
     id: 1,
+    href: '',
+    current: false,
+    folderName: 'All Folders',
+    iconType: 'Folders',
+    children: null
+  },{
+    id: 2,
     href: '',
     current: false,
     folderName: 'Video Scripts',
@@ -17,11 +24,25 @@ export default function MainNav() {
       { id: 1.3, href: '', current: false, folderName: 'Notes', iconType: 'FileText' },{ id: 1.1, href: '', current: false, folderName: 'Dissertation', iconType: 'Folder' }
     ]
   }, {
-    id: 2,
+    id: 3,
     href: '',
     current: false,
     folderName: 'Social Content',
     iconType: 'Folder',
+    children: null
+  }, {
+    id: 4,
+    href: '',
+    current: false,
+    folderName: 'Research',
+    iconType: 'Folder',
+    children: null
+  }, {
+    id: 5,
+    href: '',
+    current: false,
+    folderName: 'New Folder',
+    iconType: 'Plus',
     children: null
   }];
 
@@ -40,9 +61,9 @@ export default function MainNav() {
                   <Circle size={12} color='#CDCCC9' />
                   <Circle size={12} color='#CDCCC9' />
                 </div>
-
-                <PanelLeft size={16} color='#676562' />
-
+                  <button onClick={()=> {
+                    props.setNavOpen(false)
+                  }}><PanelLeft size={16} color='#676562' /></button>
               </div>
 
               <div className='flex flex-col gap-[1px]'>
@@ -56,8 +77,8 @@ export default function MainNav() {
 
 
           <li>
-            <li className='text-xs text-text-default pl-3 pb-1'
-            >Folders</li>
+            <div className='text-xs text-text-default pl-3 pb-1'
+            >Folders</div>
 
             <ul role="list" className="flex flex-col justify-end gap-px overflow-y-auto">
 

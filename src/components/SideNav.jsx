@@ -55,7 +55,7 @@ export default function SideNav(props) {
             type="button"
             className="rounded px-1 py-1 text-xs font-semibold hover:bg-[#f7f2eb]"
             onClick={() => {
-              props.setNavCollapsed(false)
+              props.setNavOpen(false)
             }}
        
           >
