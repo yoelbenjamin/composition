@@ -16,7 +16,10 @@ export default {
           'text-selected': '#35332F',
 
           'button-background': '#EAE8E3',
-          'divider-app': '#E7E6E3'
+          'divider-app': '#E7E6E3',
+
+          'button-hover-grey': '#F3F3F3',
+          'button-border': '#CDCCC9',
 
 
         }

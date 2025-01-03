@@ -1,6 +1,6 @@
 import { PanelLeft, Circle, Search } from 'lucide-react';
 
-import ButtonText, { ButtonIconLeft, ButtonIconRight, ButtonIconBoth } from './Buttons'
+import { LinkIconLeft, LinkIconBoth } from './Buttons'
 
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 
@@ -68,9 +68,9 @@ export default function MainNav(props) {
 
               <div className='flex flex-col gap-[1px]'>
 
-                <ButtonIconLeft buttonText={"Search"} iconType={"Search"} />
+                <LinkIconLeft linkText={"Search"} iconType={"Search"} />
 
-                <ButtonIconLeft buttonText={"Drafts"} iconType={"NotebookPen"} />
+                <LinkIconLeft linkText={"Drafts"} iconType={"NotebookPen"} />
               </div>
              </li>
 
@@ -87,13 +87,13 @@ export default function MainNav(props) {
 
                 <li key={item.id}>
                   {!item.children ? (
-                    <ButtonIconLeft buttonText={item.folderName} iconType={item.iconType} />
+                    <LinkIconLeft linkText={item.folderName} iconType={item.iconType} />
                   ) : (
                     <Disclosure as="div" defaultOpen={false}>
 
                       <DisclosureButton className="w-full">
                         {({ open }) => (
-                          <ButtonIconBoth as="a" buttonText={item.folderName} iconTypeLeft={item.iconType} iconTypeRight={open ? 'ChevronUp' : 'ChevronDown'} />
+                          <LinkIconBoth as="a" linkText={item.folderName} iconTypeLeft={item.iconType} iconTypeRight={open ? 'ChevronUp' : 'ChevronDown'} />
                         )}
                       </DisclosureButton>
 
@@ -101,7 +101,7 @@ export default function MainNav(props) {
                         {item.children.map((subItem) => (
                           <li key={subItem.id}>
                             <Disclosure.Button className="pl-1 w-full">
-                              <ButtonIconLeft buttonText={subItem.folderName} iconType={subItem.iconType} />
+                              <LinkIconLeft linkText={subItem.folderName} iconType={subItem.iconType} />
                             </Disclosure.Button>
                           </li>
                         ))}
@@ -122,16 +122,16 @@ export default function MainNav(props) {
           <li>
               <ul className='flex flex-col gap-px'>
               <li>
-                <ButtonIconLeft buttonText={"Settings"} iconType={"Cog"} />
+                <LinkIconLeft linkText={"Settings"} iconType={"Cog"} />
               </li>
               <li>
-              <ButtonIconLeft buttonText={"Support"} iconType={"Info"} />
+                <LinkIconLeft linkText={"Support"} iconType={"Info"} />
               </li>
               <li>
-              <ButtonIconLeft buttonText={"Shortcuts"} iconType={"Command"} />
+                <LinkIconLeft linkText={"Shortcuts"} iconType={"Command"} />
               </li>
               <li>
-              <ButtonIconLeft buttonText={"Upgrade"} iconType={"CloudUpload"} />
+                <LinkIconLeft linkText={"Upgrade"} iconType={"CloudUpload"} />
               </li>           
               
               </ul>

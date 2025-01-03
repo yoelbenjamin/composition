@@ -14,9 +14,9 @@ export default function ContentBody() {
   ]
 
   return (
-    <div className="flex flex-col w-full justify-center">
+    <div className="flex flex-col w-full items-center pt-4">
        <Toolbar />
-      <div className='flex justify-center'>
+      
         <ul role="list" className="space-y-3 mt-16 mb-3 w-[816px]">
         {items.map((item) => (
           <li key={item.id} className="overflow-hidden bg-white px-12 py-12 shadow sm:rounded-md sm:px-12 min-h-[1056px]">
@@ -24,7 +24,7 @@ export default function ContentBody() {
           </li>
         ))}
         </ul>
-      </div>
+ 
       
     </div>
   )
