@@ -7,6 +7,7 @@ import HeaderCrumbs from './components/Breadcrumbs'
 import ContentBody from './components/ContentBody'
 import Toolbar from './components/Toolbar'
 import MainNav from './components/MainNavigation'
+import Tiptap from './Tiptap'
 
 
 function App() {
@@ -27,11 +28,12 @@ function App() {
           setNavOpen={setNavOpen}
         /> )}
 
-        <ContentBody
+        {/*<ContentBody
           viewingDocument={viewingDocument}
           setViewingDocument={setViewingDocument}
-        />
+        />*/}
 
+        <Tiptap />
       </div>
 
     </>
