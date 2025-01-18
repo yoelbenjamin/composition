@@ -9,12 +9,12 @@ const content = "<p>Call me Ishmael. Some years ago- never mind how long precise
 
 const Tiptap = () => {
   return (
-    <div className='p-6 w-full'>
+    <div className='p-6 w-full h-full '>
       <EditorProvider 
         extensions={extensions} 
         content={content}
         editorContainerProps={{ 
-          className: 'overflow-hidden bg-white px-12 py-12 shadow sm:rounded-md sm:px-12 w-full min-h-[1056px] autofocus-none' }}
+          className: 'bg-white px-56 py-24 shadow sm:rounded-md w-full min-h-screen focus:outline-none !important' }}
         >
         <FloatingMenu editor={null}>Start typing...</FloatingMenu>
         <BubbleMenu editor={null}>This is the bubble menu</BubbleMenu>
